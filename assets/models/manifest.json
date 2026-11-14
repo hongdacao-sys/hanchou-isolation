@@ -1,0 +1,77 @@
+[
+  {
+    "series": "CHC",
+    "glb": "/workspace/hanchou-web/site/assets/models/chc.glb",
+    "bytes": 4638036,
+    "counts": {
+      "fastener": {
+        "points": 31771,
+        "cells": 35994,
+        "target": 36000
+      },
+      "alu": {
+        "points": 114224,
+        "cells": 219996,
+        "target": 220000
+      },
+      "red": {
+        "points": 444,
+        "cells": 624,
+        "target": 0
+      },
+      "rubber": {
+        "points": 1008,
+        "cells": 1008,
+        "target": 0
+      }
+    },
+    "radius_m": 0.1273457806757792,
+    "height_m": 0.11542261391878128,
+    "cad_origin_mm": [
+      -0.06629562377929688,
+      -0.258087158203125,
+      8.170777320861816
+    ],
+    "elapsed_s": 1.52
+  },
+  {
+    "series": "JZ",
+    "glb": "/workspace/hanchou-web/site/assets/models/jz.glb",
+    "bytes": 4567036,
+    "counts": {
+      "fastener": {
+        "points": 30008,
+        "cells": 36000,
+        "target": 36000
+      },
+      "alu": {
+        "points": 77186,
+        "cells": 139997,
+        "target": 140000
+      },
+      "spring": {
+        "points": 45098,
+        "cells": 89998,
+        "target": 90000
+      },
+      "rubber": {
+        "points": 508,
+        "cells": 504,
+        "target": 0
+      },
+      "red": {
+        "points": 12246,
+        "cells": 24000,
+        "target": 24000
+      }
+    },
+    "radius_m": 0.12190255152177032,
+    "height_m": 0.1530633270740509,
+    "cad_origin_mm": [
+      -0.056427001953125,
+      -0.05750846862792969,
+      -2.788216306726099e-06
+    ],
+    "elapsed_s": 1.02
+  }
+]
