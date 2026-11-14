@@ -1,4 +1,4 @@
-/* 翰畴隔震 — interactive 360° product viewer (CHC / JZ).
+/* 翰畴隔震 — interactive 360° product viewer (CHC / CHD / JZ / JTD / JTE).
    Classic (non-module) script. Expects window.THREE from assets/vendor/three.min.js.
    GLB files cannot be fetched from file:// in Chrome; a short note is shown instead. */
 (function () {
@@ -101,9 +101,16 @@
     var radius = Math.max(size.length() * 0.5, 0.05);
     // Look at a point slightly above the geometric mid-height so bases sit naturally.
     var target = new THREE.Vector3(center.x, Math.max(center.y * 0.92, size.y * 0.42), center.z);
-    var yaw = series === "JZ" ? 26 : 24;
-    var elev = series === "JZ" ? 14 : 18;
-    var dist = radius * (series === "JZ" ? 2.9 : 2.65);
+    var FRAMING = {
+      JZ:  { yaw: 26, elev: 14, dist: 2.9 },
+      CHD: { yaw: 22, elev: 16, dist: 2.85 },
+      JTD: { yaw: 22, elev: 16, dist: 2.75 },
+      JTE: { yaw: 22, elev: 16, dist: 2.75 }
+    };
+    var frame = FRAMING[series] || { yaw: 24, elev: 18, dist: 2.65 };
+    var yaw = frame.yaw;
+    var elev = frame.elev;
+    var dist = radius * frame.dist;
     // Portrait / narrow viewports have a tighter horizontal FOV; back the camera up so the full product fits.
     var aspect = camera.aspect || 1;
     if (aspect < 1.05) {

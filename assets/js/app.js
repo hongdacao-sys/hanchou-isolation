@@ -211,9 +211,30 @@
         <div><dt>安装尺寸 D1</dt><dd>${m.D1} mm</dd></div>
         <div><dt>安装螺纹 D3</dt><dd>${m.D3}</dd></div>
         <div><dt>最佳变形</dt><dd>${m.deflection} mm</dd></div>`;
+    } else if (S.id === "CHD") {
+      specs = `
+        <div><dt>最小载荷 P1</dt><dd>${m.p1} kg</dd></div>
+        <div><dt>最大载荷 P2</dt><dd>${m.p2} kg</dd></div>
+        <div><dt>竖向刚度</dt><dd>${m.k} kg/mm</dd></div>
+        <div><dt>外形高度 H</dt><dd>${m.H} mm</dd></div>
+        <div><dt>外形直径 D</dt><dd>${m.D} mm</dd></div>
+        <div><dt>安装尺寸 D1</dt><dd>${m.D1} mm</dd></div>
+        <div><dt>安装尺寸 L1</dt><dd>${m.L1} mm</dd></div>
+        <div><dt>安装尺寸 L2</dt><dd>${m.L2} mm</dd></div>
+        <div><dt>安装螺纹 D3</dt><dd>${m.D3}</dd></div>
+        <div><dt>最佳变形</dt><dd>${m.deflection} mm</dd></div>`;
     } else if (S.id === "JW") {
       specs = `
         <div><dt>外形高度 H</dt><dd>${m.H} mm</dd></div>
+        <div><dt>外形宽度 W</dt><dd>${m.W} mm</dd></div>
+        <div><dt>安装螺纹 M</dt><dd>${m.M}</dd></div>
+        <div><dt>安装尺寸 L1</dt><dd>${m.L1} mm</dd></div>
+        <div><dt>外形长度 L</dt><dd>${m.L} mm</dd></div>
+        <div><dt>最佳变形</dt><dd>${m.deflection} mm</dd></div>`;
+    } else if (S.id === "JTD" || S.id === "JTE") {
+      specs = `
+        <div><dt>外形高度 H</dt><dd>${m.H} mm</dd></div>
+        <div><dt>安装宽度 W1</dt><dd>${m.W1} mm</dd></div>
         <div><dt>外形宽度 W</dt><dd>${m.W} mm</dd></div>
         <div><dt>安装螺纹 M</dt><dd>${m.M}</dd></div>
         <div><dt>安装尺寸 L1</dt><dd>${m.L1} mm</dd></div>

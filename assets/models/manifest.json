@@ -73,5 +73,115 @@
       -2.788216306726099e-06
     ],
     "elapsed_s": 1.02
+  },
+  {
+    "series": "CHD",
+    "glb": "/workspace/hanchou-web/site/assets/models/chd.glb",
+    "bytes": 5613700,
+    "counts": {
+      "fastener": {
+        "points": 32149,
+        "cells": 35994,
+        "target": 36000
+      },
+      "alu": {
+        "points": 114116,
+        "cells": 219996,
+        "target": 220000
+      },
+      "red": {
+        "points": 264,
+        "cells": 264,
+        "target": 0
+      },
+      "rubber": {
+        "points": 1008,
+        "cells": 1008,
+        "target": 0
+      },
+      "spring": {
+        "points": 41349,
+        "cells": 80000,
+        "target": 80000
+      }
+    },
+    "radius_m": 0.15458514673349005,
+    "height_m": 0.1111946702003479,
+    "cad_origin_mm": [
+      0.10286712646484375,
+      0.11496353149414062,
+      19.398698806762695
+    ],
+    "elapsed_s": 39.34
+  },
+  {
+    "series": "JTD",
+    "glb": "/workspace/hanchou-web/site/assets/models/jtd.glb",
+    "bytes": 4151016,
+    "counts": {
+      "fastener": {
+        "points": 25827,
+        "cells": 29564,
+        "target": 0
+      },
+      "rubber": {
+        "points": 20675,
+        "cells": 40000,
+        "target": 40000
+      },
+      "spring": {
+        "points": 25074,
+        "cells": 50000,
+        "target": 50000
+      },
+      "alu": {
+        "points": 74313,
+        "cells": 140000,
+        "target": 140000
+      }
+    },
+    "radius_m": 0.09324798400425521,
+    "height_m": 0.08955000340938568,
+    "cad_origin_mm": [
+      516.7361450195312,
+      -0.20242691040039062,
+      -92.30000305175781
+    ],
+    "elapsed_s": 5.66
+  },
+  {
+    "series": "JTE",
+    "glb": "/workspace/hanchou-web/site/assets/models/jte.glb",
+    "bytes": 4793912,
+    "counts": {
+      "fastener": {
+        "points": 32154,
+        "cells": 36614,
+        "target": 36000
+      },
+      "alu": {
+        "points": 74436,
+        "cells": 139996,
+        "target": 140000
+      },
+      "logo": {
+        "points": 28390,
+        "cells": 49996,
+        "target": 50000
+      },
+      "spring": {
+        "points": 40990,
+        "cells": 80000,
+        "target": 80000
+      }
+    },
+    "radius_m": 0.13773854192971682,
+    "height_m": 0.12008321285247803,
+    "cad_origin_mm": [
+      0.00200653076171875,
+      0.016834259033203125,
+      -0.5000236630439758
+    ],
+    "elapsed_s": 16.36
   }
 ]
