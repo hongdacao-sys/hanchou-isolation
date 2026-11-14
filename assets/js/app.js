@@ -211,6 +211,14 @@
         <div><dt>安装尺寸 D1</dt><dd>${m.D1} mm</dd></div>
         <div><dt>安装螺纹 D3</dt><dd>${m.D3}</dd></div>
         <div><dt>最佳变形</dt><dd>${m.deflection} mm</dd></div>`;
+    } else if (S.id === "JW") {
+      specs = `
+        <div><dt>外形高度 H</dt><dd>${m.H} mm</dd></div>
+        <div><dt>外形宽度 W</dt><dd>${m.W} mm</dd></div>
+        <div><dt>安装螺纹 M</dt><dd>${m.M}</dd></div>
+        <div><dt>安装尺寸 L1</dt><dd>${m.L1} mm</dd></div>
+        <div><dt>外形长度 L</dt><dd>${m.L} mm</dd></div>
+        <div><dt>最佳变形</dt><dd>${m.deflection} mm</dd></div>`;
     } else {
       specs = `
         <div><dt>外形高度 H</dt><dd>${m.H} mm</dd></div>

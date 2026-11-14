@@ -325,6 +325,54 @@ body.dialog-open{overflow:hidden}
   inset: 7% 7% 27% !important;
 }
 
+
+/* Home index: three series cards. */
+.series-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1100px;
+}
+@media (max-width: 1023px) {
+  .series-cards { grid-template-columns: 1fr; }
+}
+
+/* JW gallery: only one official cutout; detail and installation slots CSS-crop the hero PNG. */
+[data-series="JW"] .gallery-card:nth-child(2) > img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 72% !important;
+  inset: 0 0 auto 0 !important;
+  transform: none !important;
+  object-position: 50% 2% !important;
+}
+[data-series="JW"] .gallery-card:nth-child(3) > img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 66% !important;
+  inset: 7% 0 27% 0 !important;
+  transform: none !important;
+  object-position: 50% 100% !important;
+}
+
+/* JW engineering labels — tall closed housing, 3 callouts. */
+@media (min-width: 1024px) {
+  [data-series="JW"] .annotation-label.label-top {
+    top: 8%;
+    right: 6.25%;
+  }
+  [data-series="JW"] .annotation-label.label-midright {
+    top: 44%;
+    right: 5%;
+    white-space: normal;
+    max-width: 11.5em;
+    text-align: right;
+  }
+  [data-series="JW"] .annotation-label.label-left {
+    top: auto;
+    left: 6.25%;
+    bottom: 10%;
+  }
+}
+
 /* —— Mobile / tablet layout (≤1023px). Desktop (≥1024px) is unchanged. —— */
 @media (max-width: 1023px) {
   .jw-site .hero-stage,
@@ -597,4 +645,11 @@ body.dialog-open{overflow:hidden}
 @media (max-width: 359px) {
   .jw-site .hero-title { font-size: clamp(34px, 11vw, 42px); }
   .jw-site .nav-cta { padding: 10px 10px; }
+}
+
+@media (max-width: 1023px) {
+  [data-series="JW"] .annotation-label.label-bottom {
+    white-space: normal;
+    max-width: none;
+  }
 }

@@ -1,4 +1,4 @@
-/* Official catalogue parameters only. CHC: page 5. JZ: page 7. */
+/* Official catalogue parameters only. CHC: page 5. JZ: page 7. JW: page 10. */
 window.HANCHOU_SERIES = {
   CHC: {
     id: "CHC",
@@ -153,6 +153,73 @@ window.HANCHOU_SERIES = {
     hasMinMax: false,
     models: [50,70,100,150,200,250,300,350,400,500].map(function (p) {
       return { name: "JZ-" + p, load: p, deflection: 15, H: 130, D: 12, W: 75, M: "M12", C: 132, L: 175 };
+    })
+
+  },
+  JW: {
+    id: "JW",
+    letter: "JW",
+    nameZh: "JW 型弹簧减振器",
+    nameEn: "JW SPRING VIBRATION ISOLATOR",
+    shortName: "JW 型弹簧减振器",
+    page: 10,
+    catalogueTitle: "翰畴隔震产品样册",
+    pdfHref: "../assets/pdf/JW-样册第10页.pdf",
+    pdfDownload: "翰畴隔震-JW型弹簧减振器-样册第10页.pdf",
+    images: {
+      hero: "../assets/img/jw-hero.png",
+      front: "../assets/img/jw-hero.png",
+      detail: "../assets/img/jw-hero.png"
+    },
+    hero: {
+      kicker: "HANCHOU / JW SERIES",
+      kickerName: "JW 型弹簧减振器",
+      title: "隔开振动，<br>稳住运行。",
+      description: "为风机、水泵与精密仪器仪表提供设备隔振。<br>内部多曲线圆柱型弹簧，适应低频振动。"
+    },
+    stats: { load: "50–350", deflection: "15" },
+    introAside: "JW 型弹簧减振器可用于风机、风机盘管、新风机组、风机箱、水泵及精密仪器仪表。内部多曲线圆柱型弹簧适应低频振动。",
+    bento: {
+      countLabel: "可选型号，匹配设备载荷。",
+      footTitle: "8 种型号 · 最佳载荷 50–350 kg",
+      footRange: "JW-50 — JW-350",
+      deflectionNote: "8 种型号共用样册标示的最佳变形量。",
+      featureTitle: "抗横向剪切",
+      featureBody: "全封闭铝镁合金壳体，<br>控制侧向运动。",
+      featureCode: "JW / ENCLOSED HOUSING"
+    },
+    engineering: {
+      title: "全封闭外壳，<br>看清连接。",
+      body: "真实样册产品外观，不推演未公开的内部结构。",
+      labels: [
+        { id: "stud", en: "01 / CONNECTING STUD", zh: "连接螺杆", cls: "label-top", d: "M1038 200 L1160 140 H1310", cx: 1038, cy: 200 },
+        { id: "housing", en: "02 / ENCLOSED HOUSING", zh: "全封闭铝镁合金壳体", cls: "label-midright", d: "M1148 490 L1260 490 H1310", cx: 1148, cy: 490 },
+        { id: "base", en: "03 / MOUNTING BASE", zh: "安装基座", cls: "label-left", d: "M742 755 L600 755 H320", cx: 742, cy: 755 }
+      ]
+    },
+    gallery: [
+      { img: "hero", code: "JW / CATALOGUE PRODUCT VIEW", title: "JW 型弹簧减振器全貌。", caption: "同一样册产品图片 · 全貌展示。", alt: "样册第10页JW型弹簧减振器全貌：银色圆柱全封闭外壳、上端螺杆螺母与双安装孔基座" },
+      { img: "detail", code: "JW / TOP CONNECTION DETAIL", title: "看清顶部连接件。", caption: "同一样册产品图片 · 顶部连接件细节，非另一组实拍。", alt: "同一样册JW型弹簧减振器图片的顶部连接螺杆和螺母细节" },
+      { img: "front", code: "JW / INSTALLATION SURFACES", title: "适配多种安装平面。", caption: "可安装于轻质混凝土地面、木地板、钢结构。同一样册产品图片 · 非安装现场实拍。", alt: "同一样册JW型弹簧减振器产品图片，用于安装平面说明，非现场安装照片" }
+    ],
+    specsIntro: ["JW 型设备用弹簧减振器。", "铝镁合金全封闭壳体，内部采用多曲线圆柱型弹簧，抗横向剪切，适用于低频隔振。"],
+    highlight: [
+      { label: "外形高度 H", value: "122 mm" },
+      { label: "外形宽度 W", value: "84 mm" },
+      { label: "安装螺纹 M", value: "M16" },
+      { label: "安装尺寸 L1", value: "102 mm" },
+      { label: "外形长度 L", value: "139 mm" },
+      { label: "最佳变形", value: "15 mm" }
+    ],
+    tableNoteTop: "适用于各种风机、风机盘管、新风机组、风机箱、水泵及精密仪器仪表；可安装于轻质混凝土地面、木地板和钢结构。",
+    tableCaption: "JW 型弹簧减振器 · 翰畴隔震产品样册第10页",
+    tableNoteBottom: "H、W、L1、L 为外形及安装尺寸，单位 mm；M 为螺纹规格。最佳载荷不等于最大承载，实际选型需技术确认。",
+    tableSource: "来源：翰畴隔震产品样册第10页。下载文件为原样册 JW 单页 PDF，非概念资料。",
+    calcCautionExtra: "",
+    commonSpecsHtml: "最佳变形量 15 mm；H122 mm / W84 mm / M16 / L1 102 mm / L139 mm。",
+    hasMinMax: false,
+    models: [50,70,100,150,200,250,300,350].map(function (p) {
+      return { name: "JW-" + p, load: p, deflection: 15, H: 122, W: 84, M: "M16", L1: 102, L: 139 };
     })
   }
 };
