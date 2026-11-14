@@ -104,6 +104,14 @@
     var yaw = series === "JZ" ? 26 : 24;
     var elev = series === "JZ" ? 14 : 18;
     var dist = radius * (series === "JZ" ? 2.9 : 2.65);
+    // Portrait / narrow viewports have a tighter horizontal FOV; back the camera up so the full product fits.
+    var aspect = camera.aspect || 1;
+    if (aspect < 1.05) {
+      var vfov = (camera.fov * Math.PI) / 180;
+      var hfov = 2 * Math.atan(Math.tan(vfov / 2) * aspect);
+      var fit = (radius * 1.22) / Math.sin(Math.min(vfov, hfov) / 2);
+      dist = Math.max(dist, fit);
+    }
     var theta = THREE.MathUtils.degToRad(yaw);
     var phi = THREE.MathUtils.degToRad(90 - elev);
     var pos = new THREE.Vector3().setFromSphericalCoords(dist, phi, theta).add(target);
@@ -197,15 +205,22 @@
       resumeTimer: 0,
       raf: 0,
       disposed: false,
+      model: null,
+      userMoved: false,
     };
 
     function resize() {
       var w = wrap.clientWidth || canvasHost.clientWidth || 640;
       var h = wrap.clientHeight || canvasHost.clientHeight || 480;
       if (w < 2 || h < 2) return;
+      var aspectChanged = Math.abs((camera.aspect || 1) - w / h) > 0.04;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
+      // Re-frame only when the aspect actually changes (e.g. first layout), not on every mobile URL-bar resize.
+      if (state.ready && state.model && aspectChanged && !state.userMoved) {
+        state.framing = frameCamera(state.model, camera, controls, series);
+      }
     }
 
     var ro = new ResizeObserver(resize);
@@ -228,9 +243,70 @@
       }, 2200);
     }
 
-    renderer.domElement.addEventListener("pointerdown", pauseAuto);
+    renderer.domElement.addEventListener("pointerdown", function () { state.userMoved = true; pauseAuto(); });
     renderer.domElement.addEventListener("wheel", pauseAuto, { passive: true });
     renderer.domElement.addEventListener("touchstart", pauseAuto, { passive: true });
+
+    // One-finger vertical swipe scrolls the page; horizontal drag orbits; two-finger pinch-zooms.
+    var touchStart = null;
+    var touchLast = null;
+    var touchMode = null;
+    var canvasEl = renderer.domElement;
+    canvasEl.style.touchAction = "pan-y";
+    canvasEl.addEventListener("touchstart", function (ev) {
+      if (ev.touches.length === 1) {
+        touchStart = { x: ev.touches[0].clientX, y: ev.touches[0].clientY };
+        touchLast = { x: ev.touches[0].clientX, y: ev.touches[0].clientY };
+        touchMode = null;
+        controls.enabled = false;
+      } else {
+        touchStart = null;
+        touchLast = null;
+        touchMode = "orbit";
+        controls.enabled = true;
+        state.userMoved = true;
+      }
+    }, { passive: true, capture: true });
+    canvasEl.addEventListener("touchmove", function (ev) {
+      if (!touchStart || ev.touches.length !== 1) return;
+      var x = ev.touches[0].clientX;
+      var y = ev.touches[0].clientY;
+      var dx = x - touchStart.x;
+      var dy = y - touchStart.y;
+      if (!touchMode) {
+        if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+        touchMode = Math.abs(dy) > Math.abs(dx) * 1.15 ? "scroll" : "orbit";
+        if (touchMode === "orbit") {
+          state.userMoved = true;
+          pauseAuto();
+        }
+      }
+      if (touchMode === "orbit") {
+        var ox = x - touchLast.x;
+        var oy = y - touchLast.y;
+        var offset = camera.position.clone().sub(controls.target);
+        var sph = new THREE.Spherical().setFromVector3(offset);
+        sph.theta -= ox * 0.005;
+        sph.phi -= oy * 0.005;
+        sph.phi = THREE.MathUtils.clamp(sph.phi, controls.minPolarAngle, controls.maxPolarAngle);
+        sph.makeSafe();
+        camera.position.setFromSpherical(sph).add(controls.target);
+        controls.update();
+      }
+      touchLast = { x: x, y: y };
+    }, { passive: true, capture: true });
+    canvasEl.addEventListener("touchend", function () {
+      touchStart = null;
+      touchLast = null;
+      touchMode = null;
+      controls.enabled = true;
+    }, { passive: true });
+    canvasEl.addEventListener("touchcancel", function () {
+      touchStart = null;
+      touchLast = null;
+      touchMode = null;
+      controls.enabled = true;
+    }, { passive: true });
 
     function resetCamera() {
       if (!state.framing) return;
@@ -269,6 +345,8 @@
           obj.receiveShadow = false;
         });
         scene.add(model);
+        state.model = model;
+        resize();
         state.framing = frameCamera(model, camera, controls, series);
         scene.add(makeContactShadow(state.framing.radius));
         hideLoading(wrap);
