@@ -3,13 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#f3f3ef" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0b0b0c">
+  <meta name="theme-color" content="#0b0b0c" data-hc-theme-color>
   <meta name="description" content="CHC 型阻尼弹簧减震器：用于机床、水泵、通风机、空气压缩机、冷冻机、柴油发电机与精密仪表等设备底部隔震。多组弹簧具有较大的阻尼及较小的水平变形。 查看样册产品图与第5页参数。">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <title>翰畴隔震 — CHC 型阻尼弹簧减震器</title>
+  <script>
+    (function () {
+      var k = "hanchou-theme", s = null;
+      try { s = localStorage.getItem(k); } catch (e) {}
+      if (s !== "light" && s !== "dark") s = null;
+      var light = s ? s === "light" : (window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches);
+      var theme = light ? "light" : "dark";
+      var el = document.documentElement;
+      el.setAttribute("data-theme", theme);
+      el.style.colorScheme = theme;
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", light ? "#f3f3ef" : "#0b0b0c");
+    })();
+  </script>
   <link rel="stylesheet" href="../assets/css/site.css">
+  <script src="../assets/js/theme.js"></script>
 </head>
 <body>
   <div class="jw-site lite-motion">
@@ -33,6 +46,11 @@
           <a href="#specs"><span>技术规格</span></a>
         </nav>
         <div class="nav-actions">
+          <div class="theme-switch theme-switch-nav" role="radiogroup" aria-label="外观主题">
+            <button type="button" role="radio" aria-checked="true" data-theme-value="auto" aria-label="自动，跟随系统">自动</button>
+            <button type="button" role="radio" aria-checked="false" data-theme-value="light" aria-label="浅色">浅色</button>
+            <button type="button" role="radio" aria-checked="false" data-theme-value="dark" aria-label="深色">深色</button>
+          </div>
           <button type="button" class="icon-button settings-button" aria-label="显示与动效设置" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></button>
           <button type="button" class="pill nav-cta" data-open-dialog>产品选型 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></button>
           <button type="button" class="icon-button mobile-menu" aria-label="打开菜单" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
@@ -46,6 +64,14 @@
       <div class="nav-drawer" id="mobile-nav">
         <nav class="mobile-links" aria-label="移动导航">
           <a href="../" class="home-link">返回首页</a>
+          <div class="theme-switch-drawer-row">
+            <span class="theme-switch-label">外观</span>
+            <div class="theme-switch theme-switch-drawer" role="radiogroup" aria-label="外观主题">
+              <button type="button" role="radio" aria-checked="true" data-theme-value="auto" aria-label="自动，跟随系统">自动</button>
+              <button type="button" role="radio" aria-checked="false" data-theme-value="light" aria-label="浅色">浅色</button>
+              <button type="button" role="radio" aria-checked="false" data-theme-value="dark" aria-label="深色">深色</button>
+            </div>
+          </div>
           <a href="#overview">概览</a>
           <a href="#engineering">精密设计</a>
           <a href="#model">三维查看</a>

@@ -9,6 +9,9 @@
   var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function isLightScheme() {
+    var theme = document.documentElement.getAttribute("data-theme");
+    if (theme === "light") return true;
+    if (theme === "dark") return false;
     return window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
   }
 
@@ -232,12 +235,15 @@
 
     applyScheme();
 
-    var schemeMql = window.matchMedia("(prefers-color-scheme: light)");
     function onSchemeChange() {
       applyScheme();
     }
-    if (schemeMql.addEventListener) schemeMql.addEventListener("change", onSchemeChange);
-    else if (schemeMql.addListener) schemeMql.addListener(onSchemeChange);
+    document.addEventListener("hanchou-theme-change", onSchemeChange);
+    var schemeMql = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)");
+    if (schemeMql) {
+      if (schemeMql.addEventListener) schemeMql.addEventListener("change", onSchemeChange);
+      else if (schemeMql.addListener) schemeMql.addListener(onSchemeChange);
+    }
 
     var state = {
       ready: false,
@@ -462,8 +468,11 @@
         state.disposed = true;
         cancelAnimationFrame(state.raf);
         ro.disconnect();
-        if (schemeMql.removeEventListener) schemeMql.removeEventListener("change", onSchemeChange);
-        else if (schemeMql.removeListener) schemeMql.removeListener(onSchemeChange);
+        document.removeEventListener("hanchou-theme-change", onSchemeChange);
+        if (schemeMql) {
+          if (schemeMql.removeEventListener) schemeMql.removeEventListener("change", onSchemeChange);
+          else if (schemeMql.removeListener) schemeMql.removeListener(onSchemeChange);
+        }
         controls.dispose();
         renderer.dispose();
       },
