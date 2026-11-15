@@ -304,7 +304,8 @@ body.dialog-open{overflow:hidden}
 [data-series="JZ"] .gallery-card:nth-child(2) > img,
 [data-series="CHD"] .gallery-card:nth-child(2) > img,
 [data-series="JTD"] .gallery-card:nth-child(2) > img,
-[data-series="JTE"] .gallery-card:nth-child(2) > img {
+[data-series="JTE"] .gallery-card:nth-child(2) > img,
+[data-series="JHD"] .gallery-card:nth-child(2) > img {
   object-fit: cover !important;
   width: 100% !important;
   height: 72% !important;
@@ -326,6 +327,9 @@ body.dialog-open{overflow:hidden}
 [data-series="JTE"] .gallery-card:nth-child(2) > img {
   object-position: 50% 0% !important;
 }
+[data-series="JHD"] .gallery-card:nth-child(2) > img {
+  object-position: 50% 4% !important;
+}
 
 /* Gallery front/installation card: same original front PNG, centered, no baked tilt. */
 .gallery-card:nth-child(3) > img {
@@ -338,7 +342,7 @@ body.dialog-open{overflow:hidden}
 }
 
 
-/* Home index: six series cards. 3 columns on desktop, 2 on tablet, 1 on phone. */
+/* Home index: seven series cards. 3 columns on desktop, 2 on tablet, 1 on phone. */
 .series-cards {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: 1100px;
@@ -711,6 +715,33 @@ body.dialog-open{overflow:hidden}
   }
   [data-series="JTD"] .annotation-label.label-left,
   [data-series="JTE"] .annotation-label.label-left {
+    top: auto;
+    left: 6.25%;
+    bottom: 10%;
+  }
+}
+
+/* JHD engineering labels — front elevation, 4 visible callouts; no hidden springs. */
+@media (min-width: 1024px) {
+  [data-series="JHD"] .annotation-label.label-top {
+    top: 8%;
+    right: 6.25%;
+  }
+  [data-series="JHD"] .annotation-label.label-midright {
+    top: 38%;
+    right: 5%;
+    white-space: normal;
+    max-width: 11.5em;
+    text-align: right;
+  }
+  [data-series="JHD"] .annotation-label.label-bottom {
+    top: 58%;
+    bottom: auto;
+    right: 5%;
+    text-align: right;
+    white-space: nowrap;
+  }
+  [data-series="JHD"] .annotation-label.label-left {
     top: auto;
     left: 6.25%;
     bottom: 10%;

@@ -1,4 +1,4 @@
-/* Official catalogue parameters only. CHC p.5, CHD p.6, JZ p.7, JTD p.8, JTE p.9, JW p.10. */
+/* Official catalogue parameters only. CHC p.5, CHD p.6, JZ p.7, JTD p.8, JTE p.9, JW p.10, JHD p.11 (2026 catalogue). */
 window.HANCHOU_SERIES = {
   CHC: {
     id: "CHC",
@@ -443,6 +443,76 @@ window.HANCHOU_SERIES = {
     hasMinMax: false,
     models: [50,70,100,150,200,250,300,350,400,450,500].map(function (p) {
       return { name: "JTE-" + p, load: p, deflection: 15, H: 80, W1: 12.5, W: 100, M: "M12", L1: 137, L: 175 };
+    })
+  }
+
+
+  ,
+  JHD: {
+    id: "JHD",
+    letter: "JHD",
+    nameZh: "JHD 低频阻尼弹簧减振器",
+    nameEn: "JHD LOW-FREQUENCY DAMPED SPRING VIBRATION ISOLATOR",
+    shortName: "JHD 低频阻尼弹簧减振器",
+    page: 11,
+    catalogueTitle: "翰畴隔震产品样册",
+    pdfHref: "../assets/pdf/JHD-样册第11页.pdf",
+    pdfDownload: "翰畴隔震-JHD低频阻尼弹簧减振器-样册第11页.pdf",
+    images: {
+      hero: "../assets/img/jhd-hero.png",
+      front: "../assets/img/jhd-front.png",
+      detail: "../assets/img/jhd-hero.png"
+    },
+    hero: {
+      kicker: "HANCHOU / JHD SERIES",
+      kickerName: "JHD 低频阻尼弹簧减振器",
+      title: "适应低频，<br>封闭壳体。",
+      description: "全封闭铝合金外壳，抗横向剪切并控制侧向运动。<br>多曲线圆柱型弹簧，适应低频频率的要求。"
+    },
+    stats: { load: "200–650", deflection: "20" },
+    introAside: "JHD 系列弹簧减振器外形采用铝镁合金材质，产品具有良好的抗横向剪切性能，全封闭式铝合金外壳可有效防止机组横向载荷而位移。减振器中的弹簧采用多曲线圆柱型弹簧，收缩率远远大于多数橡胶材料，因此减振器适应低频频率的要求。同时会控制侧向运动，使水平方向的拉力大于垂直方向的拉力，从而能够使隔振器跟减振器连接，不会发生减振器或设备损坏的现象。",
+    bento: {
+      countLabel: "可选型号，匹配设备载荷。",
+      footTitle: "8 种型号 · 最佳载荷 200–650 kg",
+      footRange: "JHD-200 — JHD-650",
+      deflectionNote: "全部型号共用样册标示的最佳变形量 20 mm。",
+      featureTitle: "抗横向剪切",
+      featureBody: "全封闭铝合金外壳，<br>控制侧向运动。",
+      featureCode: "JHD / ENCLOSED HOUSING"
+    },
+    engineering: {
+      title: "全封闭外壳，<br>看清限位。",
+      body: "真实产品外观，不推演未公开的内部结构。",
+      labels: [
+        { id: "stud", en: "01 / CONNECTING STUD", zh: "连接螺杆", cls: "label-top", d: "M1001 302 L1160 160 H1310", cx: 1001, cy: 302 },
+        { id: "housing", en: "02 / ENCLOSED HOUSING", zh: "全封闭铝合金外壳", cls: "label-midright", d: "M1063 430 L1260 430 H1310", cx: 1063, cy: 430 },
+        { id: "sidebolt", en: "03 / SIDE LIMIT BOLT", zh: "侧向限位螺栓", cls: "label-bottom", d: "M1137 470 L1260 540 H1310", cx: 1137, cy: 470 },
+        { id: "base", en: "04 / MOUNTING BASE", zh: "安装基座", cls: "label-left", d: "M801 561 L600 700 H320", cx: 801, cy: 561 }
+      ]
+    },
+    gallery: [
+      { img: "hero", code: "JHD / CATALOGUE PRODUCT VIEW", title: "JHD 低频阻尼弹簧减振器全貌。", caption: "同一样册产品图片 · 全貌展示。", alt: "样册第11页JHD低频阻尼弹簧减振器全貌：银色全封闭外壳、上端螺杆螺母与双安装孔基座" },
+      { img: "detail", code: "JHD / TOP CONNECTION DETAIL", title: "看清顶部连接件。", caption: "同一样册产品图片 · 顶部连接件细节，非另一组实拍。", alt: "同一样册JHD低频阻尼弹簧减振器图片的顶部连接螺杆和螺母细节" },
+      { img: "front", code: "JHD / INSTALLATION SURFACES", title: "适配多种安装平面。", caption: "可安装于轻质混凝土地面、木地板、钢结构。同一样册产品图片 · 非安装现场实拍。", alt: "同一样册JHD低频阻尼弹簧减振器正面图片，可见侧向限位螺栓与安装基座，用于安装平面说明，非现场安装照片" }
+    ],
+    specsIntro: ["JHD 低频阻尼弹簧减振器。", "外形采用铝镁合金材质，全封闭式铝合金外壳可有效防止机组横向载荷而位移。弹簧采用多曲线圆柱型弹簧，适应低频频率的要求，并控制侧向运动。"],
+    highlight: [
+      { label: "外形高度 H", value: "118 mm" },
+      { label: "外形宽度 W", value: "140.0 mm" },
+      { label: "安装螺纹 M", value: "M12" },
+      { label: "安装尺寸 L1", value: "200 mm" },
+      { label: "外形长度 L", value: "240 mm" },
+      { label: "最佳变形", value: "20 mm" }
+    ],
+    tableNoteTop: "适用于各种风机、风机盘管、新风机组、风机箱、水泵、精密仪器、仪表等设备的隔振。可安装于轻质混凝土地面、木地板、钢结构等平面。",
+    tableCaption: "JHD 低频阻尼弹簧减振器 · 翰畴隔震产品样册第11页",
+    tableNoteBottom: "H、W、L1、L 为外形及安装尺寸，单位 mm；M 为螺纹规格。最佳载荷不等于最大承载，实际选型需技术确认。",
+    tableSource: "来源：翰畴隔震产品样册第11页（2026 年版）。下载文件为该样册未改动单页，非概念资料。",
+    calcCautionExtra: "",
+    commonSpecsHtml: "最佳变形量 20 mm；H118 mm / W140.0 mm / M12 / L1 200 mm / L240 mm。",
+    hasMinMax: false,
+    models: [200,260,320,400,460,520,600,650].map(function (p) {
+      return { name: "JHD-" + p, load: p, deflection: 20, H: 118, W: 140.0, M: "M12", L1: 200, L: 240 };
     })
   }
 

@@ -106,7 +106,8 @@
       CHD: { yaw: 22, elev: 16, dist: 2.85 },
       JTD: { yaw: 22, elev: 16, dist: 2.75 },
       JTE: { yaw: 22, elev: 16, dist: 2.75 },
-      JW:  { yaw: 28, elev: 18, dist: 2.7 }
+      JW:  { yaw: 28, elev: 18, dist: 2.7 },
+      JHD: { yaw: 28, elev: 18, dist: 2.7 }
     };
     var frame = FRAMING[series] || { yaw: 24, elev: 18, dist: 2.65 };
     var yaw = frame.yaw;
