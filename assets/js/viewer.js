@@ -4,8 +4,17 @@
 (function () {
   "use strict";
 
-  var BG = 0x0b0b0c;
+  var BG_DARK = 0x0b0b0c;
+  var BG_LIGHT = 0xe8e8e2;
   var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function isLightScheme() {
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+  }
+
+  function canvasBg() {
+    return isLightScheme() ? BG_LIGHT : BG_DARK;
+  }
 
   function $(sel, root) {
     return (root || document).querySelector(sel);
@@ -167,7 +176,7 @@
       return null;
     }
 
-    renderer.setClearColor(BG, 1);
+    renderer.setClearColor(canvasBg(), 1);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -177,7 +186,7 @@
     canvasHost.appendChild(renderer.domElement);
 
     var scene = new THREE.Scene();
-    scene.background = new THREE.Color(BG);
+    scene.background = new THREE.Color(canvasBg());
     scene.environment = makeStudioEnv(renderer);
 
     var camera = new THREE.PerspectiveCamera(32, 1, 0.05, 20);
@@ -206,6 +215,29 @@
     var bounce = new THREE.DirectionalLight(0xc8ccd0, 0.18);
     bounce.position.set(0.2, -2.2, 0.4);
     scene.add(bounce);
+
+    var contactShadow = null;
+
+    function applyScheme() {
+      var light = isLightScheme();
+      var bg = light ? BG_LIGHT : BG_DARK;
+      renderer.setClearColor(bg, 1);
+      scene.background.setHex(bg);
+      hemi.groundColor.setHex(light ? 0xc8c8c4 : 0x161618);
+      if (contactShadow && contactShadow.material) {
+        contactShadow.material.opacity = light ? 0.5 : 0.85;
+      }
+      renderer.toneMappingExposure = light ? 1.34 : 1.28;
+    }
+
+    applyScheme();
+
+    var schemeMql = window.matchMedia("(prefers-color-scheme: light)");
+    function onSchemeChange() {
+      applyScheme();
+    }
+    if (schemeMql.addEventListener) schemeMql.addEventListener("change", onSchemeChange);
+    else if (schemeMql.addListener) schemeMql.addListener(onSchemeChange);
 
     var state = {
       ready: false,
@@ -357,7 +389,9 @@
         state.model = model;
         resize();
         state.framing = frameCamera(model, camera, controls, series);
-        scene.add(makeContactShadow(state.framing.radius));
+        contactShadow = makeContactShadow(state.framing.radius);
+        scene.add(contactShadow);
+        applyScheme();
         hideLoading(wrap);
         var fallback = $(".model-fallback", wrap);
         if (fallback) fallback.hidden = true;
@@ -428,6 +462,8 @@
         state.disposed = true;
         cancelAnimationFrame(state.raf);
         ro.disconnect();
+        if (schemeMql.removeEventListener) schemeMql.removeEventListener("change", onSchemeChange);
+        else if (schemeMql.removeListener) schemeMql.removeListener(onSchemeChange);
         controls.dispose();
         renderer.dispose();
       },
