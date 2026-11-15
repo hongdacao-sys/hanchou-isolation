@@ -1,4 +1,4 @@
-/* 翰畴隔震 — interactive 360° product viewer (CHC / CHD / JZ / JTD / JTE).
+/* 翰畴隔震 — interactive 360° product viewer (CHC / CHD / JZ / JTD / JTE / JW).
    Classic (non-module) script. Expects window.THREE from assets/vendor/three.min.js.
    GLB files cannot be fetched from file:// in Chrome; a short note is shown instead. */
 (function () {
@@ -105,7 +105,8 @@
       JZ:  { yaw: 26, elev: 14, dist: 2.9 },
       CHD: { yaw: 22, elev: 16, dist: 2.85 },
       JTD: { yaw: 22, elev: 16, dist: 2.75 },
-      JTE: { yaw: 22, elev: 16, dist: 2.75 }
+      JTE: { yaw: 22, elev: 16, dist: 2.75 },
+      JW:  { yaw: 28, elev: 18, dist: 2.7 }
     };
     var frame = FRAMING[series] || { yaw: 24, elev: 18, dist: 2.65 };
     var yaw = frame.yaw;

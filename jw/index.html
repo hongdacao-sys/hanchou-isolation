@@ -23,6 +23,7 @@
         <nav class="desktop-links" aria-label="主导航">
           <a href="#overview" class="active"><span class="nav-pill"></span><span>概览</span></a>
           <a href="#engineering"><span>精密设计</span></a>
+          <a href="#model"><span>三维查看</span></a>
           <a href="#calculator"><span>载荷计算</span></a>
           <a href="#specs"><span>技术规格</span></a>
         </nav>
@@ -41,6 +42,7 @@
         <nav class="mobile-links" aria-label="移动导航">
           <a href="#overview">概览</a>
           <a href="#engineering">精密设计</a>
+          <a href="#model">三维查看</a>
           <a href="#calculator">载荷计算</a>
           <a href="#specs">技术规格</a>
         </nav>
@@ -64,6 +66,7 @@
             <div class="hero-buttons">
               <a href="#calculator" class="pill primary">查看 JW 选型 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
               <a href="#engineering" class="text-link">查看产品外观 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+              <a href="#model" class="text-link">360° 三维查看 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
             </div>
           </div>
           <div class="hero-coordinate mono">HANCHOU GEZHEN / CATALOGUE P.10</div>
@@ -226,11 +229,37 @@
         </div>
       </section>
 
+      <section id="model" class="section model-section" aria-labelledby="model-title">
+        <div class="section-heading model-heading">
+          <div class="section-title">
+            <div class="eyebrow"><span>03 /</span> 360° VIEW</div>
+            <h2 id="model-title">转一转，<br><span class="muted-title">看清结构。</span></h2>
+          </div>
+          <p class="model-lead">拖动旋转，滚轮或捏合放大。模型由产品三维数模生成，便于查看外形与装配关系。</p>
+        </div>
+        <div class="model-frame">
+          <div class="model-viewport" id="model-viewport" data-series="JW" data-model="../assets/models/jw.glb" tabindex="0" role="application" aria-label="JW 型弹簧减振器三维查看器。拖动旋转，滚轮或捏合放大；方向键旋转，加减号缩放，按 0 复位。">
+            <div class="model-loading">正在载入三维模型…</div>
+            <div class="model-fallback" hidden>
+              <p data-fallback-main>三维模型需通过本地服务器打开。</p>
+              <p class="mono" data-fallback-detail>在本目录执行 python3 -m http.server 8765，或运行 preview.sh，然后访问 http://127.0.0.1:8765/</p>
+            </div>
+          </div>
+          <div class="model-toolbar">
+            <p class="model-hint mono">拖动旋转 · 滚轮或捏合放大</p>
+            <div class="model-actions">
+              <button type="button" class="model-btn" data-model-autorotate aria-pressed="true">停止旋转</button>
+              <button type="button" class="model-btn" data-model-reset>复位</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="gallery">
         <div class="gallery-stage">
           <div class="gallery-header">
             <div>
-              <div class="eyebrow"><span>03 /</span> PRODUCT &amp; INSTALLATION</div>
+              <div class="eyebrow"><span>04 /</span> PRODUCT &amp; INSTALLATION</div>
               <h2>从产品外观。<span class="muted-title">到安装平面。</span></h2>
             </div>
           </div>
@@ -277,7 +306,7 @@
       <section class="section specs-section" id="specs">
         <div class="section-heading">
           <div class="section-title">
-            <div class="eyebrow"><span>04 /</span> JW / CATALOGUE PARAMETERS</div>
+            <div class="eyebrow"><span>05 /</span> JW / CATALOGUE PARAMETERS</div>
             <h2>设备隔振，<br><span class="muted-title">以样册参数为依据。</span></h2>
           </div>
         </div>
@@ -440,6 +469,8 @@
   </div>
   <script src="../assets/js/series.js"></script>
   <script src="../assets/js/app.js"></script>
+  <script src="../assets/vendor/three.min.js"></script>
+  <script src="../assets/js/viewer.js"></script>
 
 </body>
 </html>

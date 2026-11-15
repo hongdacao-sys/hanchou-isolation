@@ -117,7 +117,7 @@
   {
     "series": "JTD",
     "glb": "/workspace/hanchou-web/site/assets/models/jtd.glb",
-    "bytes": 4151016,
+    "bytes": 4105260,
     "counts": {
       "fastener": {
         "points": 25827,
@@ -125,29 +125,29 @@
         "target": 0
       },
       "rubber": {
-        "points": 20675,
-        "cells": 40000,
+        "points": 20674,
+        "cells": 39998,
         "target": 40000
       },
       "spring": {
-        "points": 25074,
+        "points": 25069,
         "cells": 50000,
         "target": 50000
       },
       "alu": {
-        "points": 74313,
+        "points": 70507,
         "cells": 140000,
         "target": 140000
       }
     },
-    "radius_m": 0.09324798400425521,
-    "height_m": 0.08955000340938568,
+    "radius_m": 0.09378112365706505,
+    "height_m": 0.09175004810094833,
     "cad_origin_mm": [
-      516.7361450195312,
+      516.7361145019531,
       -0.20242691040039062,
-      -92.30000305175781
+      -100.50004577636719
     ],
-    "elapsed_s": 5.66
+    "elapsed_s": 5.59
   },
   {
     "series": "JTE",
@@ -183,5 +183,30 @@
       -0.5000236630439758
     ],
     "elapsed_s": 16.36
+  },
+  {
+    "series": "JW",
+    "glb": "/workspace/hanchou-web/site/assets/models/jw.glb",
+    "bytes": 7779776,
+    "counts": {
+      "fastener": {
+        "points": 172899,
+        "cells": 262169,
+        "target": 0
+      },
+      "alu": {
+        "points": 73103,
+        "cells": 139998,
+        "target": 140000
+      }
+    },
+    "radius_m": 0.10614437533542224,
+    "height_m": 0.1399744600057602,
+    "cad_origin_mm": [
+      223.8216552734375,
+      281.8663635253906,
+      -11.000033378601074
+    ],
+    "elapsed_s": 2.6
   }
 ]

@@ -79,7 +79,7 @@
 }
 /* series index */
 .series-index{min-height:100svh;background:#0b0b0c;color:#ededea;padding:12vh 6.25% 8vh}
-.series-index h1{font-size:clamp(48px,7vw,96px);letter-spacing:-.045em;line-height:.98;font-weight:600}
+.series-index h1{font-size:clamp(28px,3.2vw,40px);letter-spacing:-.025em;line-height:1.28;font-weight:600;color:#ededea;max-width:none;margin:18px 0 56px}
 .series-index .lead{color:#96969c;max-width:520px;margin:28px 0 56px;font-size:15px;line-height:1.95}
 .series-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:1100px}
 .series-card{display:block;border:1px solid #ffffff14;background:#111113;border-radius:20px;overflow:hidden;transition:border-color .2s}
@@ -350,20 +350,21 @@ body.dialog-open{overflow:hidden}
   .series-cards { grid-template-columns: 1fr; }
 }
 
-/* JW gallery: only one official cutout; detail and installation slots CSS-crop the hero PNG. */
+/* JW gallery: only one official cutout (3/4 view); detail and installation slots CSS-crop the hero PNG. */
 [data-series="JW"] .gallery-card:nth-child(2) > img {
   object-fit: cover !important;
   width: 100% !important;
   height: 72% !important;
   inset: 0 0 auto 0 !important;
   transform: none !important;
-  object-position: 50% 2% !important;
+  object-position: 50% 8% !important;
 }
 [data-series="JW"] .gallery-card:nth-child(3) > img {
   object-fit: cover !important;
   width: 100% !important;
-  height: 66% !important;
-  inset: 7% 0 27% 0 !important;
+  height: 70% !important;
+  inset: auto 0 22% 0 !important;
+  top: auto !important;
   transform: none !important;
   object-position: 50% 100% !important;
 }
@@ -640,7 +641,8 @@ body.dialog-open{overflow:hidden}
 
 @media (max-width: 767px) {
   .series-index { padding: 10vh 6% 8vh; }
-  .series-index h1 { font-size: clamp(40px, 12vw, 56px); }
+  .series-index h1 { font-size: clamp(22px, 6.2vw, 28px); line-height: 1.32; letter-spacing: -0.02em; margin: 16px 0 40px; }
+  .series-index h1 .home-title-rest { display: block; }
   .series-index .lead { font-size: 15px; }
   .series-card p { font-size: 14px; line-height: 1.8; }
   .series-card h2 { font-size: 24px; }
