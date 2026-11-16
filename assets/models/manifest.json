@@ -212,36 +212,26 @@
   {
     "series": "JHD",
     "glb": "/workspace/hanchou-web/site/assets/models/jhd.glb",
-    "bytes": 3394492,
+    "bytes": 3188528,
     "counts": {
+      "fastener": {
+        "points": 33228,
+        "cells": 36000,
+        "target": 36000
+      },
       "alu": {
-        "points": 78960,
+        "points": 74335,
         "cells": 139994,
         "target": 140000
-      },
-      "spring": {
-        "points": 25203,
-        "cells": 49846,
-        "target": 50000
-      },
-      "fastener": {
-        "points": 5876,
-        "cells": 5768,
-        "target": 0
-      },
-      "rubber": {
-        "points": 2394,
-        "cells": 4788,
-        "target": 0
       }
     },
-    "radius_m": 0.16657950150878534,
-    "height_m": 0.15045154094696045,
+    "radius_m": 0.16438767192931028,
+    "height_m": 0.13966155052185059,
     "cad_origin_mm": [
-      722.3760681152344,
-      1001.6319274902344,
+      722.3663330078125,
+      1001.8851928710938,
       -115.91153717041016
     ],
-    "elapsed_s": 2.31
+    "elapsed_s": 14.37
   }
 ]

@@ -469,13 +469,13 @@ window.HANCHOU_SERIES = {
       title: "适应低频，<br>封闭壳体。",
       description: "全封闭铝合金外壳，抗横向剪切并控制侧向运动。<br>多曲线圆柱型弹簧，适应低频频率的要求。"
     },
-    stats: { load: "200–650", deflection: "20" },
+    stats: { load: "200–650", deflection: "15" },
     introAside: "JHD 系列弹簧减振器外形采用铝镁合金材质，产品具有良好的抗横向剪切性能，全封闭式铝合金外壳可有效防止机组横向载荷而位移。减振器中的弹簧采用多曲线圆柱型弹簧，收缩率远远大于多数橡胶材料，因此减振器适应低频频率的要求。同时会控制侧向运动，使水平方向的拉力大于垂直方向的拉力，从而能够使隔振器跟减振器连接，不会发生减振器或设备损坏的现象。",
     bento: {
       countLabel: "可选型号，匹配设备载荷。",
       footTitle: "8 种型号 · 最佳载荷 200–650 kg",
       footRange: "JHD-200 — JHD-650",
-      deflectionNote: "全部型号共用样册标示的最佳变形量 20 mm。",
+      deflectionNote: "全部型号共用样册标示的最佳变形量 15 mm。",
       featureTitle: "抗横向剪切",
       featureBody: "全封闭铝合金外壳，<br>控制侧向运动。",
       featureCode: "JHD / ENCLOSED HOUSING"
@@ -497,22 +497,22 @@ window.HANCHOU_SERIES = {
     ],
     specsIntro: ["JHD 低频阻尼弹簧减振器。", "外形采用铝镁合金材质，全封闭式铝合金外壳可有效防止机组横向载荷而位移。弹簧采用多曲线圆柱型弹簧，适应低频频率的要求，并控制侧向运动。"],
     highlight: [
-      { label: "外形高度 H", value: "118 mm" },
-      { label: "外形宽度 W", value: "140.0 mm" },
+      { label: "外形高度 H", value: "120 mm" },
+      { label: "外形宽度 W", value: "160.0 mm" },
       { label: "安装螺纹 M", value: "M12" },
       { label: "安装尺寸 L1", value: "200 mm" },
       { label: "外形长度 L", value: "240 mm" },
-      { label: "最佳变形", value: "20 mm" }
+      { label: "最佳变形", value: "15 mm" }
     ],
     tableNoteTop: "适用于各种风机、风机盘管、新风机组、风机箱、水泵、精密仪器、仪表等设备的隔振。可安装于轻质混凝土地面、木地板、钢结构等平面。",
     tableCaption: "JHD 低频阻尼弹簧减振器 · 翰畴隔震产品样册第11页",
     tableNoteBottom: "H、W、L1、L 为外形及安装尺寸，单位 mm；M 为螺纹规格。最佳载荷不等于最大承载，实际选型需技术确认。",
     tableSource: "来源：翰畴隔震产品样册第11页（2026 年版）。下载文件为该样册未改动单页，非概念资料。",
     calcCautionExtra: "",
-    commonSpecsHtml: "最佳变形量 20 mm；H118 mm / W140.0 mm / M12 / L1 200 mm / L240 mm。",
+    commonSpecsHtml: "最佳变形量 15 mm；H120 mm / W160.0 mm / M12 / L1 200 mm / L240 mm。",
     hasMinMax: false,
     models: [200,260,320,400,460,520,600,650].map(function (p) {
-      return { name: "JHD-" + p, load: p, deflection: 20, H: 118, W: 140.0, M: "M12", L1: 200, L: 240 };
+      return { name: "JHD-" + p, load: p, deflection: 15, H: 120, W: 160.0, M: "M12", L1: 200, L: 240 };
     })
   }
 
