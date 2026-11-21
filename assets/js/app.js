@@ -1,6 +1,7 @@
 (function () {
   const G = 9.80665;
   const SHARE_TOL = 0.000001;
+  const MAX_SUPPORTS = 30;
   const seriesId = document.documentElement.getAttribute("data-series");
   const S = window.HANCHOU_SERIES && window.HANCHOU_SERIES[seriesId];
   if (!S) return;
@@ -62,8 +63,8 @@
       errors.push("设备质量必须是大于 0 的有限数值（kg）。");
     if (!Number.isFinite(additionalMass) || additionalMass < 0)
       errors.push("附加质量必须是大于或等于 0 的有限数值（kg）。");
-    if (!Number.isInteger(supports) || supports < 1 || supports > 16)
-      errors.push("支撑点数量必须是 1 至 16 的整数（应用界面限制）。");
+    if (!Number.isInteger(supports) || supports < 1 || supports > MAX_SUPPORTS)
+      errors.push("支撑点数量必须是 1 至 " + MAX_SUPPORTS + " 的整数（应用界面限制）。");
     let uniform = !shares;
     let useShares;
     if (shares) {
@@ -489,14 +490,14 @@
         if (uniform) hideShares();
         else {
           const n = Math.round(parseNum($("#support-count").value)) || 4;
-          renderShares(Math.min(16, Math.max(1, n)));
+          renderShares(Math.min(MAX_SUPPORTS, Math.max(1, n)));
         }
       });
     });
     $("#support-count")?.addEventListener("change", () => {
       if (!uniform) {
         const n = Math.round(parseNum($("#support-count").value)) || 4;
-        renderShares(Math.min(16, Math.max(1, n)));
+        renderShares(Math.min(MAX_SUPPORTS, Math.max(1, n)));
       }
     });
     $(".calc-form")?.addEventListener("submit", (e) => {
