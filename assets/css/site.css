@@ -1029,6 +1029,12 @@ body.dialog-open{overflow:hidden}
     margin-left: auto;
   }
   .jw-site .footer-copyright { font-size: 12px; }
+.jw-site .footer-icp, .concept-note .footer-icp { color: inherit; text-decoration: none; }
+.jw-site .footer-icp:hover, .concept-note .footer-icp:hover { text-decoration: underline; }
+.jw-site .footer-psb, .concept-note .footer-psb { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+.jw-site .footer-psb:hover, .concept-note .footer-psb:hover { text-decoration: underline; }
+.jw-site .footer-psb-icon, .concept-note .footer-psb-icon { width: 18px; height: 20px; display: inline-block; flex-shrink: 0; }
+
   .jw-site footer > .mono { font-size: 9px; line-height: 1.6; }
 
   .jw-site .bento-main .bento-big-number .count {
