@@ -1029,11 +1029,6 @@ body.dialog-open{overflow:hidden}
     margin-left: auto;
   }
   .jw-site .footer-copyright { font-size: 12px; }
-.jw-site .footer-icp, .concept-note .footer-icp { color: inherit; text-decoration: none; }
-.jw-site .footer-icp:hover, .concept-note .footer-icp:hover { text-decoration: underline; }
-.jw-site .footer-psb, .concept-note .footer-psb { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
-.jw-site .footer-psb:hover, .concept-note .footer-psb:hover { text-decoration: underline; }
-.jw-site .footer-psb-icon, .concept-note .footer-psb-icon { width: 18px; height: 20px; display: inline-block; flex-shrink: 0; }
 
   .jw-site footer > .mono { font-size: 9px; line-height: 1.6; }
 
@@ -1081,6 +1076,24 @@ body.dialog-open{overflow:hidden}
 
   .jw-site .gallery-caption p { font-size: 13px; line-height: 1.7; }
   .jw-site .gallery-caption h3 { font-size: clamp(20px, 5.5vw, 24px); }
+}
+
+
+/* Filing links and 公网安备 badge. These must be global: the captured JW
+   stylesheet sets `img { width:100%; height:100%; object-fit:cover; display:block }`,
+   and nesting the badge size inside a max-width media query lets the 国徽
+   blow up to full content width on desktop. */
+.jw-site .footer-icp, .concept-note .footer-icp { color: inherit; text-decoration: none; }
+.jw-site .footer-icp:hover, .concept-note .footer-icp:hover { text-decoration: underline; }
+.jw-site .footer-psb, .concept-note .footer-psb { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+.jw-site .footer-psb:hover, .concept-note .footer-psb:hover { text-decoration: underline; }
+.jw-site .footer-psb-icon, .concept-note .footer-psb-icon {
+  width: 18px;
+  height: 20px;
+  display: inline-block;
+  flex-shrink: 0;
+  object-fit: contain;
+  vertical-align: middle;
 }
 
 @media (max-width: 767px) {
